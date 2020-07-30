@@ -8,8 +8,16 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       
+    return Scaffold(
+       appBar: new AppBar(
+         title: new Text("Sample title"),
+         actions: <Widget>[
+           new IconButton(
+             icon: new Icon(Icons.search),
+             onPressed: () {}
+           )
+         ],
+       ),
     );
   }
 }
