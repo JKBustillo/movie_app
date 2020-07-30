@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/HttpHandler.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -6,6 +7,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    _loadJson();
+  }
+
+  _loadJson() async {
+    String data = await HttpHandler().fetchMovies();
+    print(data);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,17 +62,11 @@ class _HomeState extends State<Home> {
   List<BottomNavigationBarItem> _getFooterItems() {
     return [
       new BottomNavigationBarItem(
-        icon: new Icon(Icons.thumb_up),
-        title: new Text("Popular")
-      ),
+          icon: new Icon(Icons.thumb_up), title: new Text("Popular")),
       new BottomNavigationBarItem(
-        icon: new Icon(Icons.update),
-        title: new Text("Coming Soon")
-      ),
+          icon: new Icon(Icons.update), title: new Text("Coming Soon")),
       new BottomNavigationBarItem(
-        icon: new Icon(Icons.star),
-        title: new Text("Highest Rated")
-      )
+          icon: new Icon(Icons.star), title: new Text("Highest Rated"))
     ];
   }
 }
