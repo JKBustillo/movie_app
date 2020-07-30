@@ -15,7 +15,32 @@ class _HomeState extends State<Home> {
           new IconButton(icon: new Icon(Icons.search), onPressed: () {})
         ],
       ),
-      drawer: new Drawer(),
+      drawer: new Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new DrawerHeader(child: new Material()),
+            new ListTile(
+              title: new Text("Movies"),
+              trailing: new Icon(Icons.local_movies),
+            ),
+            new Divider(
+              height: 5.0,
+            ),
+            new ListTile(
+              title: new Text("TV"),
+              trailing: new Icon(Icons.live_tv),
+            ),
+            new Divider(
+              height: 5.0,
+            ),
+            new ListTile(
+              title: new Text("Close"),
+              trailing: new Icon(Icons.close),
+              onTap: () => Navigator.of(context).pop(),
+            )
+          ],
+        ),
+      ),
       bottomNavigationBar: new BottomNavigationBar(
         items: _getFooterItems(),
       ),
