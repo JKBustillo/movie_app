@@ -13,7 +13,11 @@ class MediaListItem extends StatelessWidget {
         children: <Widget>[
           new FadeInImage.assetNetwork(
             placeholder: "assets/placeholder.jpg",
-            image: media.getBackDropUrl()
+            image: media.getBackDropUrl(),
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: 200.0,
+            fadeOutDuration: new Duration(milliseconds: 40),
           )
         ],
       ),
