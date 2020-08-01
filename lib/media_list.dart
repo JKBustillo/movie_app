@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/HttpHandler.dart';
+import 'package:movie_app/media_list_item.dart';
 import 'package:movie_app/model/Media.dart';
 
 class MediaList extends StatefulWidget {
@@ -29,9 +30,7 @@ class _MediaListState extends State<MediaList> {
       child: new ListView.builder(
           itemCount: _media.length,
           itemBuilder: (BuildContext context, int i) {
-            return new Column(
-              children: <Widget>[new Image.network(_media[i].getPosterUrl())],
-            );
+            return new MediaListItem(_media[i]);
           }),
     );
   }
