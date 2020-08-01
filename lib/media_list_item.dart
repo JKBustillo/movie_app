@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/Media.dart';
 
@@ -33,6 +35,24 @@ class MediaListItem extends StatelessWidget {
                     constraints: new BoxConstraints.expand(
                       height: 55.0
                     ),
+                  ),
+                ),
+                new Positioned(
+                  left: 10.0,
+                  bottom: 35.0,
+                  child: new Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      new Container(
+                        child: new Text(
+                          media.title,
+                          style: new TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
