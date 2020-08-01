@@ -1,3 +1,5 @@
+import 'package:movie_app/common/Util.dart';
+
 class Media {
   int id;
   double voteAverage;
@@ -7,6 +9,8 @@ class Media {
   String overview;
   String releaseDate;
   List<dynamic> genreIds;
+
+  String getPosterUrl() => getMediumPictureUrl(posterPath);
 
   factory Media(Map jsonMap) {
     return new Media.deserialize(jsonMap);
