@@ -30,16 +30,13 @@ class MediaListItem extends StatelessWidget {
                   right: 0.0,
                   child: new Container(
                     decoration: new BoxDecoration(
-                      color: Colors.grey[900].withOpacity(0.5)
-                    ),
-                    constraints: new BoxConstraints.expand(
-                      height: 55.0
-                    ),
+                        color: Colors.grey[900].withOpacity(0.5)),
+                    constraints: new BoxConstraints.expand(height: 55.0),
                   ),
                 ),
                 new Positioned(
                   left: 10.0,
-                  bottom: 35.0,
+                  bottom: 10.0,
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -47,11 +44,23 @@ class MediaListItem extends StatelessWidget {
                         child: new Text(
                           media.title,
                           style: new TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                          ),
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         ),
-                      )
+                      ),
+                      new Container(
+                          padding: const EdgeInsets.only(top: 5.0),
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              new Text(
+                                '${media.getGenres()}, ',
+                                style: new TextStyle(color: Colors.white),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              new Text(media.releaseDate)
+                            ],
+                          )),
                     ],
                   ),
                 )
