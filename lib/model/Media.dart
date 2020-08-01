@@ -12,6 +12,7 @@ class Media {
 
   String getPosterUrl() => getMediumPictureUrl(posterPath);
   String getBackDropUrl() => getLargePictureUrl(backdropPath);
+  String getGenres() => getGenreValues(genreIds);
 
   factory Media(Map jsonMap) {
     return new Media.deserialize(jsonMap);
@@ -24,6 +25,6 @@ class Media {
         posterPath = json["poster_path"] ?? "",
         backdropPath = json["backdrop_path"] ?? "",
         overview = json["overview"],
-        releaseDate = json["release_data"],
+        releaseDate = json["release_date"],
         genreIds = json["genre_ids"].toList();
 }
